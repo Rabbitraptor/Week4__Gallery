@@ -10,18 +10,6 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 0.75; }
 
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-
-html {
-  font-size: 16px; }
-
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  line-height: 0.75; }
-
 .magz {
   min-width: 768px;
   max-width: 1366px;
