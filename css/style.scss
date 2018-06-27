@@ -1,0 +1,585 @@
+@import "base.scss";
+
+// Colors
+// ----------------------------
+$primary : #50E3C2;
+$black : #000;
+
+
+// Settings
+// ----------------------------
+$desk-width: 960px;
+$grid: 8; 
+$grid_H: 100px; 
+
+
+
+
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 0.75;
+}
+
+
+// Magz__header
+// ---------------------------
+.magz {
+    min-width: 768px;
+    max-width: 1366px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+// logo
+.magz__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+
+    .logo {
+        padding: 2px 10px;
+        font-weight: 900;
+        color: #fff;
+        background-color: $black;
+        margin-bottom: 16px;
+        
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 72px;
+        margin: 0;
+    }
+}
+
+
+
+// Magz__body 
+// ---------------------------
+.magz__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+//gallery
+.gallery-row {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery {
+    flex: 0 0 auto;
+    position: relative;
+
+    // gallery basic setting
+    &__img {
+        overflow: hidden;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    &__number {
+        position: absolute;
+        font-weight: 900;
+        font-size: 3rem;
+    }
+
+    &__title {
+        position: absolute;
+
+        span {
+            position: absolute;
+            line-height: 0.75;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 3rem;
+            transform-origin: 0 0;
+
+            &::before,
+            &::after {
+                position: inherit;
+                line-height: inherit;
+                text-transform: inherit;
+                font-weight: inherit;
+                font-size: inherit;
+            }
+
+            &::before {
+                opacity: 0.3;
+                overflow: hidden;
+                top: -.375em;
+                height: 45%;
+            }
+
+            &::after {
+                opacity: 0.1;
+                overflow: hidden;
+                top: -.65em;
+                left: 0;
+                height: 30%;
+            }
+        }
+    }
+
+    &__intro {
+        position: absolute;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        border: 20px solid $primary;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: repeating-linear-gradient(-45deg, transparent -2%, transparent 3%, #50E3C2 0%, #50E3C2 11%); 
+    }
+}
+
+
+// .gallery--1
+.gallery--1 {
+    width: calc(( 100% / #{$grid} ) * 5 );
+    height: calc( #{$grid_H} * 5 );
+    margin-bottom: 100px;
+
+    .gallery__img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        width: calc(( 100% / 5 ) * 4 );
+        height: calc( #{$grid_H} * 4 );
+        background-image: url("http://bit.ly/2KlWFrc");
+    }
+
+    .gallery__title {
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        width: calc(( 100% / 5 ) * 4 );
+        height: calc( #{$grid_H} * 4 );
+
+        span {
+            top: -12px;
+
+            &::before,
+            &::after {
+                content: "linen blazer";
+            }
+        }
+    }
+
+    .gallery__number {
+        bottom: 0;
+        transform: translateY( 135% );
+    }
+
+    .gallery__intro {
+        transform: rotate(-270deg);
+        left: calc((( 100% / 5 ) * 4 ) - 40px );
+        bottom: calc(( 100% / 5 ) * .5 );
+    }
+
+
+    &::before {
+        right: calc((100% / 5) * .5);
+        top: calc((100% / 5) * .5);
+        width: calc(( 100% / 5) * 2);
+        height: calc(( 100% / 5) * 2);
+    }
+
+    &::after {
+        width: calc(( 100% / 5) * 2);
+        height: calc(( 100% / 5) * 1);
+        bottom: 0;
+        left: calc((100% / 5) * .75 );
+        transform: translateY(50%);
+        z-index: 1;
+    }
+}
+
+// .gallery--2
+.gallery--2 {
+    width: calc(( 100% / #{$grid} ) * 3 );
+    height: calc( #{$grid_H} * 5 );
+    margin-bottom: 100px;
+
+    .gallery__img {
+        position: absolute;
+        top: calc(( 100% / 5) * 2);
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc( #{$grid_H} * 2 );
+        box-shadow: 60px -50px 0 $primary;
+        background-image: url("http://bit.ly/2IrAzSb");
+    }
+
+    .gallery__intro {
+        left: -5%;
+        top: calc(( 100% / 5 ) * 1.75);
+    }
+
+    .gallery__title {
+        top: calc(( 100% / 5) * 2);
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc( #{$grid_H} * 2 );
+
+        span {
+            right: -45%;
+            top: 100%;
+            margin-top: 36px;
+
+            &::before,
+            &::after {
+                content: "freelift";
+            }
+        }
+    }
+
+    .gallery__number {
+        top: calc(( 100% / 5 ) * 1 );
+        right: 0;
+    }
+
+    &::before {
+        width: calc(( 100% / 3 ) * 2);
+        height: calc(( 100% / 5) * 2);
+        top: calc(( 100% / 5) * 1);
+        left: calc(( 100% / 3) * 1);
+    }
+}
+
+// .gallery--3
+.gallery--3 {
+    width: calc(( 100% / #{$grid} ) * 5 );
+    height: calc( #{$grid_H} * 4 );
+
+    .gallery__img {
+        position: absolute;
+        top: calc(( 100% / 4 ) * 1 );
+        width: calc(( 100% / 5 ) * 4 );
+        height: calc( #{$grid_H} * 2 );
+        z-index: 1;
+        background-image: url("http://bit.ly/2KodQIJ");
+    }
+
+    .gallery__title {
+        top: calc(( 100% / 4 ) * 1 );
+        width: calc(( 100% / 5 ) * 4 );
+        height: calc( #{$grid_H} * 2 );
+        z-index: 1;
+
+        span {
+            right: 0;
+            bottom: 100%;
+            margin-bottom: 5px;
+
+            &::before,
+            &::after {
+                content: "super skinny";
+            }
+        }
+        
+    }
+
+    .gallery__number {
+        right: calc(( 100% / 6 ) * .6 );
+        bottom: calc(( 100% / 4 ) * .5 );
+    }
+
+    .gallery__intro {
+        bottom: calc(( 100% / 4 ) * .75 );
+        left: 4%;
+    }
+
+    &::before {
+        width: calc( ( 100% / 5 ) *2);
+        height: calc( #{$grid_H} * 2 );
+        left: calc(( 100% / 5 ) *2.5);
+        top: calc(( 100% / 4 ) *1.5);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top : calc(( 100% / 4 ) * .5 );
+        width: calc( ( 100% / 5 ) * 2 );
+        height: calc( #{$grid_H} * 2 );
+        background-color: $primary;
+    }
+}
+
+
+// .gallery--4
+.gallery--4 {
+    width: calc(( 100% / #{$grid} ) * 3 );
+    height: calc( #{$grid_H} * 5 );
+
+    .gallery__img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc( #{$grid_H} * 4 );
+        background-image: url("http://bit.ly/2KiVd8F");
+    }
+
+    .gallery__number {
+        bottom: 0;
+        right: calc(( 100% / 3 ) * 2);
+        margin-right: 4px;
+    }
+
+    .gallery__title {
+        right: 0;
+        bottom: 0;
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc( #{$grid_H} * 4 );
+        
+        span {
+            transform: rotate(-90deg) translate(-100%, -110%);
+            &::before,
+            &::after {
+                content: "denim";
+            }
+        }
+    }
+
+    .gallery__intro {
+        transform: rotate(-270deg);
+        right: 0;
+        top: 3%;
+    }
+
+    &::before {
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc(( 100% / 5 ) * 2 );
+        left: calc((( 100% / 5 ) * .5 ) + 20px );
+    }
+
+    &::after {
+        width: calc(( 100% / 3 ) * 2);
+        height: calc( #{$grid_H} * 1 );
+        right: 0;
+        bottom: 0;
+        transform: translateY(50%);
+    }
+}
+
+
+// .gallery--5
+.gallery--5 {
+    width: calc(( 100% / #{$grid} ) * 8 );
+    height: calc( #{$grid_H} * 2 );
+
+    .gallery__img {
+        position: absolute;
+        left: calc(( 100% / 8 ) * 2 );
+        width: calc(( 100% / 8 ) * 2 );
+        height: calc( #{$grid_H} * 2 );
+        background-image: url("http://bit.ly/2KoR1nS");
+        transform: scaleX(-1);
+    }
+
+    .gallery__title {
+        left: calc(( 100% / 8 ) * 2 );
+        width: calc(( 100% / 8 ) * 2 );
+        height: calc( #{$grid_H} * 2 );
+
+        span {
+            top: 30%;
+            left: -70%;
+
+            &::before,
+            &::after {
+                content: "sweatshirts";
+            }
+        }
+    }
+
+    .gallery__number {
+        bottom: calc(( 100% / 2 ) * .1 );
+        left: calc(( 100% / 8 ) * 1 );
+    }
+
+    .gallery__intro {
+        left: calc(( 100% / 8 ) * 4 );
+    }
+    
+    &::before {
+        width: calc(( 100% / 8) * 2 );
+        height: calc(( 100% / 2 ) * 1 );
+        left: calc(( 100% / 8 ) * 1 );
+        top: calc(( 100% / 2 ) * 1.5 );
+        z-index: -1;
+    }
+
+    &::after {
+        width: calc(( 100% / 8 ) * 2 );
+        height: calc(( 100% / 2 ) * 1 );
+        left: calc(( 100% / 8 ) * .5 );
+        transform: translateY(-50%);
+        z-index: 0;
+    }
+}
+
+
+// .gallery--6
+.gallery--6 {
+    width: calc(( 100% / #{$grid} ) * 5 );
+    height: calc( #{$grid_H} * 5 );
+    order: 1;
+
+    .gallery__img {
+        position: absolute;
+        width: calc(( 100% / 5 ) * 4 );
+        height: calc( #{$grid_H} * 4 );
+        right: 0;
+        top: 0;
+        z-index: 1;
+        background-image: url("http://bit.ly/2KkS6ND");
+    }
+
+    .gallery__title {
+        width: calc(( 100% / 5 ) * 4 );
+        height: calc( #{$grid_H} * 4 );
+        right: 0;
+        top: 0;
+        z-index: 1;
+
+        span {
+            bottom: 100%;
+            right: 0;
+            margin-bottom: 5px;
+
+            &::before,
+            &::after {
+                content: "vintage denim";
+            }
+        }
+    }
+
+    .gallery__number {
+        bottom: calc(( 100% / 5 ) * 3 );
+        right: calc(( 100% / 5 ) * 4 );
+        margin-bottom: 5px;
+    }
+
+    .gallery__intro {
+        width: calc(( 100% / 5 ) * 4);
+        height: calc( 100px * 4);
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: 24px;
+        z-index: 1;
+    }
+
+    
+    &::before {
+        width: calc(( 100% / 5 ) * 4 );
+        height: calc(( 100% / 5 ) * 1 );
+        bottom: calc(( 100% / 5 ) * 1 );
+        right: 0;
+        transform: translateY(50%);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: calc(( 100% / 5 ) * .5 );
+        bottom: calc(( 100% / 5 ) * 1 );
+        width: calc(( 100% / 5 ) * 1);
+        height: calc(( 100% / 5 ) * 2 );
+        background-color: $primary;
+    }
+}
+
+
+// .gallery--7
+.gallery--7 {
+    width: calc(( 100% / #{$grid} ) * 3 );
+    height: calc( #{$grid_H} * 6 );
+
+
+    .gallery__img {
+        position: absolute;
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc( #{$grid_H} * 4 );
+        left: 0;
+        bottom: 0;
+        background-image: url("http://bit.ly/2KcZwqb");
+    }
+
+    .gallery__title {
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc( #{$grid_H} * 4 );
+        left: 0;
+        bottom: 0;
+        
+        span {
+            transform: rotate(90deg) translate(0, -100%);
+            left: 100%;
+            margin-left: 5px;
+            
+            &::before,
+            &::after {
+                content: "edition";
+            }
+        }
+    }
+
+    .gallery__number {
+        bottom: 0;
+        right: 0;
+    }
+
+    .gallery__intro {
+        bottom: calc(( 100% / 6 ) * 4 );
+        left: 0;
+        margin-bottom: 5px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: calc(( 100% / 6 ) * 1.5 );
+        left: calc(( 100% / 3 ) * .5 );
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc(( 100% / 6 ) * 3 );
+        border: 20px solid $primary;
+        z-index: -1;
+    }
+
+    &::after {
+        width: calc(( 100% / 3 ) * 2 );
+        height: calc(( 100% / 6 ) * 2 );
+        right: 0;
+        bottom: 0;
+        background-color: $primary;
+        z-index: -1;
+    }
+}
+
+
